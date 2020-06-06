@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :introduction, length: {maximum: 50}
 
   has_many :books, dependent: :destroy
+  # refileを追加した時はここを追加、_idは省略する
   attachment :profile_image
 
 end

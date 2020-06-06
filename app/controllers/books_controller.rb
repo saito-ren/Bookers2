@@ -9,6 +9,7 @@ class BooksController < ApplicationController
 	def create
 		@book =Book.new(book_params)
 		@book.user_id = current_user.id
+		# バリデーション エラーの場合
 		if @book.save
 		   redirect_to book_path(@book.id), notice: "Book was successfully created."
 	    else
@@ -36,6 +37,7 @@ class BooksController < ApplicationController
 
 	def update
 		@book = Book.find(params[:id])
+		# バリデーションエラーの場合
 		if @book.update(book_params)
   	       redirect_to book_path(@book), notice: "Book was successfully updated."
   	    else
